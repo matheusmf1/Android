@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/toastBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:onClick="showToast"
+        android:text="Toast"
+        android:textColor="@color/design_default_color_primary_dark"
+        app:cornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/snackbarBtn"
+        style="@android:style/Animation.Translucent"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:onClick="showSnackBar"
+        android:text="SnackBar"
+        android:textColor="@color/design_default_color_primary_dark"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/toastBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/notificationBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:onClick="showNotification"
+        android:text="Notification"
+        android:textColor="@color/design_default_color_primary_dark"
+        app:cornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toastBtn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fragmentBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="28dp"
+
+        android:layout_marginEnd="40dp"
+
+
+        android:text="Fragment"
+        android:textColor="@color/design_default_color_primary_dark"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/notificationBtn"
+        app:layout_constraintTop_toBottomOf="@+id/snackbarBtn"
+        android:onClick="showFragment"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/design_default_color_primary"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentBtn"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:id="@+id/changeToFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/fragment1"
+            android:name="com.example.formacao.Fragment1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/outraActivity"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:onClick="showActivity2"
+        android:text="Activity"
+
+        android:textColor="@color/design_default_color_primary_dark"
+        app:cornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialogBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="40dp"
+        android:onClick="showDialog"
+
+        android:text="Dialog"
+        android:textColor="@color/design_default_color_primary_dark"
+
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/outraActivity"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialBtn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+
+        android:onClick="showDial"
+        android:text="Dial"
+        android:textColor="@color/design_default_color_primary_dark"
+
+        app:cornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outraActivity" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cameraBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="40dp"
+        android:onClick="showCamera"
+
+        android:text="Camera"
+        android:textColor="@color/design_default_color_primary_dark"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/dialBtn"
+        app:layout_constraintTop_toBottomOf="@+id/dialogBtn" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialBtn"
+        app:layout_constraintVertical_bias="0.51" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
