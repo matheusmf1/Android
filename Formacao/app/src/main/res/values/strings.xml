@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Formacao</string>
+    <string name="toastMsg">Hello World by Toast</string>
 </resources>

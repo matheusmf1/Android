@@ -1,16 +1,78 @@
 package com.example.formacao;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import androidx.test.rule.ActivityTestRule;
 
-public class ToastTest {
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.not;
+
+
+public class ToastTest /*extends TypeSafeMatcher<Root>*/ {
+
+
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityTestRule =
+            new ActivityTestRule<>(MainActivity.class);
+
+    private MainActivity mActivity = null;
+
+
+    @Before
+    public void setUp() throws Exception {
+        mActivity = mActivityTestRule.getActivity();
+    }
+
+
+//    @Override
+//    protected boolean matchesSafely(Root root) {
+//        int type = root.getWindowLayoutParams().get().type;
+//
+//        if (( type == WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY)){
+//            IBinder windowsToken = root.getDecorView().getWindowToken();
+//            IBinder appToken = root.getDecorView().getApplicationWindowToken();
+//            if ( windowsToken == appToken ) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     @Test
-    public void showToast() {
-        String retornoEsperado = "Hello World by Toast";
-        String retornoFeito = "CHECK HOW TO GET TOAST INFORMATIONS";
-        assertEquals(retornoEsperado,retornoFeito);
+    public void isToastDisplayed(){
+        //CLICK TOAST BUTTON
+        onView(withId(R.id.toastBtn)).perform(click());
+
+//        onView(withId(R.string.toastMsg)).inRoot(new ToastTest())
+//                .check(withText("Hello Hello World by Toast"));
+
+        MainActivity activity = mActivityTestRule.getActivity();
+
+        onView(withId(R.id.toastBtn))
+                .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
+                .check(matches(isDisplayed()));
+
+//        onView(withId(R.id.toastBtn)).check(matches(withText(R.string.toastMsg)));
+    }
+
+//    @Override
+//    public void describeTo(Description description) {
+//        description.appendText("is toast");
+//    }
+
+
+    @After
+    public void tearDown() throws Exception {
+        mActivity = null;
     }
 
 }

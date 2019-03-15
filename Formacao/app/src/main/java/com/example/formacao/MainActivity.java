@@ -1,6 +1,7 @@
 package com.example.formacao;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.app.Notification;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -33,11 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     private NotificationManagerCompat notificationManager;
 
-    protected String retornoToast;
-
     @BindView( R.id.imageView )
     ImageView imageViewPhoto;
-
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -49,12 +47,10 @@ public class MainActivity extends AppCompatActivity {
         notificationManager = NotificationManagerCompat.from( this );
     }
 
-
     public void showToast( View v ) {
         //SHOW MESSAGE
-        Toast.makeText( getApplicationContext(), "Hello World by Toast", Toast.LENGTH_LONG ).show();
+        Toast.makeText( getApplicationContext(), getString(R.string.toastMsg), Toast.LENGTH_LONG ).show();
     }
-
 
     public void showSnackBar( View v ) {
         //The SnackBar is a new Widget introduced as a replacement Toast
@@ -69,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick( View v ) { Log.i("SnackBarLOG", "Clicou no SnackBar"); }
         });
     }
-
 
     public void showNotification( View v ) {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
@@ -136,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult( requestCode, resultCode, data );
     }
 
-
     public void checkPermissions(){
         //CALL
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
@@ -147,4 +141,5 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},0); }
 
     }
+
 }
