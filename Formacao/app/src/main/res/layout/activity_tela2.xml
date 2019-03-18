@@ -13,5 +13,6 @@
         android:text="Hello World"
         android:textAlignment="center"
         android:textSize="35dp"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorAccent"
+        android:id="@+id/outraActivity"/>
 </LinearLayout>
