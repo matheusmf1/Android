@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         //A Toast message don’t have action button, but Snackbar may have action button optionally.
 
         Snackbar meuSnack;
-        meuSnack = Snackbar.make(v, "Hello World by Snack Bar", Snackbar.LENGTH_LONG);
+        meuSnack = Snackbar.make(v, getString(R.string.snackBar), Snackbar.LENGTH_LONG);
         meuSnack.show();
 
         meuSnack.setAction("Snack Action", new OnClickListener() {
