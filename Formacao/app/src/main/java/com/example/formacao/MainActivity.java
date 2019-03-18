@@ -85,12 +85,10 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-
     public void showActivity2( View v ) {
         Intent intent = new Intent(this, Tela2Activity.class );
         startActivity( intent );
     }
-
 
     @OnClick( R.id.dialogBtn )
     public void showDialog( View v ) {

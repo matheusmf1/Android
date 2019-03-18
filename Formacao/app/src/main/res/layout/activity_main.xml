@@ -89,7 +89,7 @@
 
         </LinearLayout>
 
-        <fragment
+        <FrameLayout
             android:id="@+id/fragment1"
             android:name="com.example.formacao.Fragment1"
             android:layout_width="match_parent"
