@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
     public void showNotification( View v ) {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
                 .setSmallIcon( R.drawable.ic_one )
-                .setContentTitle( "Notification" )
-                .setContentText( "Hello World" ).setPriority( NotificationCompat.PRIORITY_HIGH)
+                .setContentTitle( "Title" )
+                .setContentText( getString(R.string.notificationHw) ).setPriority( NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE )
                 .build();
 
