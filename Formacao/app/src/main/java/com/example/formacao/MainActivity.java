@@ -2,7 +2,9 @@ package com.example.formacao;
 
 import android.Manifest;
 import android.app.ActionBar;
+import android.app.ActivityManager;
 import android.app.Notification;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -27,6 +29,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 import static com.example.formacao.Notification.CHANNEL_1_ID;
 
@@ -102,23 +106,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity( intent );
     }
 
-
+    // Initiate implicit intent to get a photo
     @OnClick( R.id.cameraBtn )
     public void showCamera( View v ) {
-        imageViewPhoto = ( ImageView ) findViewById(R.id.imageView);
+        imageViewPhoto = ( ImageView ) findViewById( R.id.imageView );
 
         Intent intent = new Intent( MediaStore.ACTION_IMAGE_CAPTURE );
-        startActivityForResult( intent,1 );
-        takePicture();
+        if ( intent.resolveActivity( getPackageManager() ) != null )
+            startActivityForResult( intent,1 );
     }
 
-
-    private void takePicture( ){
-        Intent intent = new Intent( MediaStore.ACTION_IMAGE_CAPTURE );
-        startActivityForResult( intent,1 );
-    }
-
-
+    // Get the returned bitmap
     @Override
     protected void onActivityResult( int requestCode, int resultCode, @Nullable Intent data ) {
         if ( requestCode == 1 && resultCode == RESULT_OK ){

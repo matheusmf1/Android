@@ -33,6 +33,7 @@ dependencies {
     //Android Testing Support Library's runner and rules
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test:rules:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.0.0-beta02'
 
     //Material Design
     implementation 'com.google.android.material:material:1.0.0-beta01'
